@@ -6,7 +6,7 @@ Layers: 1
 Nodes: 4096
 Optimizer: RMSprop
 Loss function: sparse_categorical_crossentropy
-Dataset size: 40 000 words
+Dataset size: 80 000 words
 Epochs: 10
 """
 
