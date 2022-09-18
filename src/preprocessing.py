@@ -3,20 +3,20 @@
 import random
 from numpy import diff
 
-def scramble(lista):
+def scramble(word_list: list[str]) -> list[str]:
     """Scrambles a list of words"""
     out = []
-    length = len(lista)
+    length = len(word_list)
 
     for i in range(length):
         r = random.randint(0, length - i - 1)
-        out.append(lista[r])
+        out.append(word_list[r])
 
-        del lista[r]
+        del word_list[r]
     return out
 
 
-def get_words_raw():
+def get_words_raw() -> tuple[list[str]]:
     """Reads the raw data and outputs two lists (for the two languages) of scrambled words"""
 
     n_training = 40000
@@ -65,7 +65,7 @@ def get_words_raw():
     return (scramble(out_training), scramble(out_test))
 
 
-def get_words():
+def get_words() -> tuple[list[str]]:
     """
     Procedure that reads the raw data and outputs 
     a tuple containing training words with their 
@@ -88,7 +88,7 @@ def get_words():
     return (training_words, training_labels, testing_words, testing_labels)
 
 
-def main():
+def main() -> None:
     characters = "abcdefghijklmnopqrstuvwxyzåäö-é"
     training_words, training_labels, testing_words, testing_labels = get_words()
 
