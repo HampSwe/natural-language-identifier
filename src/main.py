@@ -2,8 +2,8 @@
 This is the main program of the project.
 
 This program lets the user interact with a bot. The bot
-asks the user for a word, and then replies with wether
-that word sounds more English or Swedish.
+asks the user for a word (or a sentence), and then replies
+with wether that word (or sentence) sounds more English or Swedish.
 
 The bot gives sarcastical answers, and the level of sarcasm
 depends on how certain the bot is of its answer.
