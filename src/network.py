@@ -15,14 +15,14 @@ import tensorflow as tf
 from tensorflow import keras as k
 import numpy as np
 
-def layerize(lista, use_bools=True):
+def layerize(word_list: list, use_bools: bool = True) -> np.ndarray:
     """Function that layerizes a word in order for the program to be able to feed it to the trained model"""
 
     char_dict = {"a":0, "b":1, "c":2, "d":3, "e":4, "f":5, "g":6, "h":7, "i":8, "j":9, "k":10, "l":11, "m":12, "n":13, "o":14, "p":15, "q":16, "r":17, "s":18, "t":19, "u":20, "v":21, "w":22, "x":23, "y":24, "z":25, "å":26, "ä":27, "ö":28, "-":29, "é":30}
     out = []
 
     if use_bools:
-        for word in lista:
+        for word in word_list:
             layer = []
 
             for i in range(15):
@@ -35,7 +35,7 @@ def layerize(lista, use_bools=True):
             out.append(np.array(layer))
 
     else:
-        for word in lista:
+        for word in word_list:
             layer = []
 
             for i in range(15):
@@ -51,7 +51,7 @@ def layerize(lista, use_bools=True):
     return np.array(out)
 
 
-def main():
+def main() -> None:
     """Procedure that trains the neural network"""
 
     use_bools = True
