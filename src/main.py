@@ -9,13 +9,14 @@ The bot gives sarcastical answers, and the level of sarcasm
 depends on how certain the bot is of its answer.
 """
 
+from tokenize import String
 import tensorflow as tf
 from tensorflow import keras as k
 import numpy as np
 import os
 import random
 
-def check_input(word):
+def format_input(word: String) -> String:
     """
     Function that makes sure that the user input is correctly formatted.
     All words have to be less than 15 characters and only include valid lowercase characters.
@@ -40,7 +41,7 @@ def check_input(word):
     return out
 
 
-def layerize_word(word):
+def layerize_word(word: String) -> np.ndarray:
     """Function that layerizes a word in order for the program to be able to feed it to the trained model"""
 
     char_dict = {"a":0, "b":1, "c":2, "d":3, "e":4, "f":5, "g":6, "h":7, "i":8, "j":9, "k":10, "l":11, "m":12, "n":13, "o":14, "p":15, "q":16, "r":17, "s":18, "t":19, "u":20, "v":21, "w":22, "x":23, "y":24, "z":25, "å":26, "ä":27, "ö":28, "-":29, "é":30}
@@ -56,7 +57,7 @@ def layerize_word(word):
     return np.array(layer)
 
 
-def start_message():
+def start_message() -> None:
     """Procedure that prints a message to the user when the program starts """
 
     os.system("cls")
@@ -65,7 +66,7 @@ def start_message():
     print()
 
 
-def main():
+def main() -> None:
     """main function of the program"""
 
     model = k.models.load_model("models/guesser.model")
@@ -89,7 +90,7 @@ def main():
             print(42)
 
         words = inp.split(" ")
-        inputs = np.array([layerize_word(check_input(x)) for x in words])
+        inputs = np.array([layerize_word(format_input(x)) for x in words])
         predictions = model.predict([inputs])
 
         count = 0
