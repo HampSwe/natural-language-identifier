@@ -1,2 +1,7 @@
 # natural-language-identifier
-A program that can identify wether a piece of text is written in Swedish or English.
+
+This is a bot that asks the user for a word (or a sentence), and then replies
+with wether that word/sentence sounds more English or Swedish.
+
+The bot gives sarcastical answers, and the level of sarcasm
+depends on how certain the bot is of its answer.
